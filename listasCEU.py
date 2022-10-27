@@ -11,5 +11,20 @@ lista = ["string", 1, True, 1.5]
 
 lista[::-1][1::2]
 
+def switch_primero_ultimo(lista):
+    tamaño=len(lista)
+    lista.append(lista[0])
+    lista.insert(0, lista[tamaño-1])
+    lista.pop(1)
+    lista.pop(tamaño-1)
+    return lista
 
-print(lista.append(lista[0]))
+def eliminar_ultimo(lista):
+    tamaño = len(lista)
+    lista = switch_primero_ultimo(lista)
+    lista.pop(tamaño-1)
+    return lista
+
+nuevalista=eliminar_ultimo(lista)
+
+print(nuevalista)
